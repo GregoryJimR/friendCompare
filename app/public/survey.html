@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Survey Questions</h2>
+        <hr>
+        <h3>About You</h3>
+        <h4>Name (required)</h4>
+        <input type="text" id="name" class="form-control" required>
+        <h4>Link to a photo of you</h4>
+        <input type="text" id="photo" class="form-control" required>
+        <hr>
+
+
+
+        <h3>Question 1</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">I consider myself to be outgoing</label>
+            <select class="form-control" id="select1">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 2</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">I feel energized when I am around large groups</label>
+            <select class="form-control" id="select2">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 3</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">In a group setting I take the lead</label>
+            <select class="form-control" id="select3">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 4</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">I consider myself to be competetive</label>
+            <select class="form-control" id="select4">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 5</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">I tend to think before I respond to questions</label>
+            <select class="form-control" id="select5">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <h4></h4>
+
+        <h3>Question 6</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">When solving a problem, I first take some time to process my thoughts</label>
+            <select class="form-control" id="select6">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 7</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">When I have a conflict with a co-worker I address it directly</label>
+            <select class="form-control" id="select7">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 8</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">I am a "dog-person"</label>
+            <select class="form-control" id="select8">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 9</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">I am a "cat-person"</label>
+            <select class="form-control" id="select9">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <h3>Question 10</h3>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">I enjoy travel</label>
+            <select class="form-control" id="select10">
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+     Submit</button>
+
+        <hr>
+
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/friends">API Friends List</a></p>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+            $("#submit").on("click", function() {
+                event.preventDefault();
+                var input = {
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    score: [$("#select1").val(),
+                        $("#select2").val(),
+                        $("#select3").val(),
+                        $("#select4").val(),
+                        $("#select5").val(),
+                        $("#select6").val(),
+                        $("#select7").val(),
+                        $("#select8").val(),
+                        $("#select9").val(),
+                        $("#select10").val()
+                    ]
+
+                };
+                console.log("input: " + input);
+                $.post("/api/friends", input, function(data) {
+                    var results = JSON.stringify(data);
+                    console.log("results: " + results);
+                });
+            });
+        </script>
+
+    </div>
+
+
+</body>
+
+</html>
