@@ -9,8 +9,10 @@ var apiRoutes = function(app) {
     app.post('/api/friends', function(req, res) {
         console.log(req.body);
         var newperson = req.body;
+        console.log(newperson["score[]"]);
+        // newperson.score = newperson.score.map(function(elem) { return parseInt(elem); });
         friendsData.push(newperson);
-        res.json(newperson);
+        // res.json(newperson);
         //function compare() {
         var friendMatchComparison = [];
         //loops through stored friends
@@ -19,7 +21,7 @@ var apiRoutes = function(app) {
             //loops and compares responses for each question against user's responses
             for (var i = 0; i < 10; i++) {
                 var newpersonIndex = (friendsData.length - 1);
-                var comp = friendsData[2].score[i] - friendsData[c].score[i];
+                var comp = friendsData[2]["score[]"][i] - friendsData[c].score[i];
                 //adjusts for negative integers
                 if (comp < 0) {
                     comp = comp * -1;
@@ -49,12 +51,14 @@ var apiRoutes = function(app) {
             if (matchScore === friendMatchComparison[g]) {
                 console.log("your match is: " + friendsData[g].name);
                 var match = {
-                    name: "it is working",
+                    name: friendsData[g].name,
                     image: friendsData[g].image
                 };
-                return match;
+                //res.send(match);
+                //return match;
             }
         }
+        res.json(match);
         //}
 
         //compare();

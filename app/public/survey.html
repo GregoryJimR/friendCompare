@@ -177,7 +177,7 @@
                 console.log("input: " + input);
                 $.post("/api/friends", input, function(data) {
                     var results = JSON.stringify(data);
-                    console.log("results: " + results);
+                    console.log(data);
                 });
             });
         </script>
